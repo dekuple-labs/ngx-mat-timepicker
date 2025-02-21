@@ -48,9 +48,7 @@ export abstract class MatTimeInputBase {
   @Output() timeChanged = new EventEmitter<number>();
 
   @HostListener('keydown', ['$event']) _keydown(event: KeyboardEvent) {
-    const isAllow =
-      (DIGIT_KEYS.includes(event.key) && !event.shiftKey) ||
-      SPECIAL_KEYS.includes(event.code);
+    const isAllow = DIGIT_KEYS.includes(event.key) || SPECIAL_KEYS.includes(event.code);
 
     if (!isAllow) {
       event.preventDefault();
